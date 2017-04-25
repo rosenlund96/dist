@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/org.apache.axis_1.4.0.v201411182030/lib/axis.jar"/>
+	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/org.apache.commons.discovery_0.2.0.v201004190315/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/javax.xml.rpc_1.1.0.v201209140446/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/javax.xml.soap_1.2.0.v201005080501/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/javax.wsdl_1.6.2.v201012040545.jar"/>
+	<classpathentry kind="lib" path="/private/var/folders/s5/6r5r86cj6_l96b26f9plj87c0000gn/T/AppTranslocation/9C504D8B-FEAA-48F8-BA34-03C59E12CB0D/d/Eclipse.app/Contents/Eclipse/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
