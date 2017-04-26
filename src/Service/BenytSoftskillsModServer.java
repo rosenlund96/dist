@@ -11,6 +11,7 @@ import Entities.BELBIN;
 import Entities.DISC;
 import Entities.THREESIXTY;
 import Entities.User;
+import resources.ItemDefinition;
 
 
 
@@ -72,19 +73,22 @@ public class BenytSoftskillsModServer {
 	        		System.out.println("2. Belbin Profil ");
 	        		System.out.println("3. 360-graders profil ");
 	        		if(scanner.nextInt() == 1){
-	        			currentUser.addToSafe(new DISC(), 1);
+	        			currentUser.addToSafe(new DISC(ItemDefinition.TESTPrice_DATA[0],false,ItemDefinition.TESTName_DATA[0],ItemDefinition.TESTDescription_DATA[0], ItemDefinition.testType[0]), 1);
 	        			System.out.println("Profilen er købt");
+	        			break loop;
 	        		}
 	        		if(scanner.nextInt() == 2){
-	        			currentUser.addToSafe(new BELBIN(),1);
+	        			currentUser.addToSafe(new BELBIN(ItemDefinition.TESTPrice_DATA[1],false,ItemDefinition.TESTName_DATA[1],ItemDefinition.TESTDescription_DATA[1], ItemDefinition.testType[1]),1);
 	        			System.out.println("Profilen er købt");
+	        			break loop;
 	        		}
 	        		if(scanner.nextInt() == 3){
-	        			currentUser.addToSafe(new THREESIXTY(),1);
+	        			currentUser.addToSafe(new THREESIXTY(ItemDefinition.TESTPrice_DATA[2],false,ItemDefinition.TESTName_DATA[2],ItemDefinition.TESTDescription_DATA[2], ItemDefinition.testType[2]),1);
 	        			System.out.println("Profilen er købt");
+	        			break loop;
 	        		}
 	        		
-	        		break loop;
+	        		
 	        	case 3:
 	        		System.out.println("Ikke understøttet i konsolprogram");
 	        		break loop;
