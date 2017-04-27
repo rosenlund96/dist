@@ -9,5 +9,11 @@
 	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/javax.xml.soap_1.2.0.v201005080501/lib/saaj.jar"/>
 	<classpathentry kind="lib" path="/Users/mathiaslarsen/.eclipse/org.eclipse.platform_4.6.2_1444291545_macosx_cocoa_x86_64/plugins/javax.wsdl_1.6.2.v201012040545.jar"/>
 	<classpathentry kind="lib" path="/private/var/folders/s5/6r5r86cj6_l96b26f9plj87c0000gn/T/AppTranslocation/9C504D8B-FEAA-48F8-BA34-03C59E12CB0D/d/Eclipse.app/Contents/Eclipse/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar"/>
+	<classpathentry kind="lib" path="gson-2.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="gson-2.6.2.jar"/>
+	<classpathentry kind="lib" path="commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="httpclient-4.3.6.jar"/>
+	<classpathentry kind="lib" path="httpcore-4.3.3.jar"/>
+	<classpathentry kind="lib" path="log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

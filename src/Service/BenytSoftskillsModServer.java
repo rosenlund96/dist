@@ -51,6 +51,7 @@ public class BenytSoftskillsModServer {
 	            }
 	        }
 	        System.out.println("Login successfuldt");
+	        //clearScreen();
 	        while(trustedUser == true){
 	        	loop: for (;;) {
 	        	System.out.println("--------------------------------");
@@ -99,10 +100,14 @@ public class BenytSoftskillsModServer {
 	        		System.out.println("Du er nu logget ud!");
 	        		trustedUser = false;
 	        		break loop;
-	        	}
+	        	}	
 	        }
 	        }
 	        
 
 }
+		 public static void clearScreen() {  
+	            System.out.print("\033[H\033[2J");  
+	            System.out.flush();  
+	           }
 }
