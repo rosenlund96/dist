@@ -1,7 +1,9 @@
 package Service;
 
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -46,5 +48,11 @@ public interface ServerI {
 	@WebMethod void setAdministrativ(boolean administrativ) throws Exception;
 	@WebMethod void setNotifikationer(boolean notifikationer) throws Exception;
 	@WebMethod void setInverter(boolean inverter) throws Exception;
+	@WebMethod boolean write(Map<String, String> map);
+	@WebMethod Reader read(String uri) throws Exception;
+	@WebMethod boolean delete(String uri) throws Exception;
+	@WebMethod void setChannel(String channel)throws Exception;
+	@WebMethod void setKey(String key) throws Exception;
+
 	
 }

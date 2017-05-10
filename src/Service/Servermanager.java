@@ -1,8 +1,10 @@
 package Service;
 
+import java.io.Reader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.jws.WebService;
 import javax.xml.namespace.QName;
@@ -14,6 +16,8 @@ import Entities.AbstractItem;
 import Entities.Group;
 import Entities.Safe;
 import Entities.User;
+import Util.DriverI;
+import Util.FireBaseDriver;
 import brugerautorisation.data.Bruger;
 import brugerautorisation.transport.soap.Brugeradmin;
 
@@ -25,6 +29,7 @@ public class Servermanager implements ServerI {
 	User current = null;
 	public Groupmanager aManager;
 	public Usermanager manager;
+	public DriverI Driver = new FireBaseDriver();
 	
 	public Servermanager(){
 		manager = new Usermanager();
@@ -216,6 +221,31 @@ public class Servermanager implements ServerI {
 	@Override
 	public String getSafeSize() throws Exception {
 		return current.getSafeSize();
+	}
+	@Override
+	public boolean write(Map<String, String> map) {
+		Driver.write(map);
+		return false;
+	}
+	@Override
+	public Reader read(String uri) throws Exception {
+		Driver.read(uri);
+		return null;
+	}
+	@Override
+	public boolean delete(String uri) throws Exception {
+		Driver.delete(uri);
+		return false;
+	}
+	@Override
+	public void setChannel(String channel) throws Exception {
+		Driver.setChannel(channel);
+		
+	}
+	@Override
+	public void setKey(String key) throws Exception {
+		Driver.setKey(key);
+		
 	}
   
 }

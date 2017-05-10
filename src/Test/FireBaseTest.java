@@ -1,6 +1,10 @@
 package Test;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Entities.User;
@@ -11,29 +15,27 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by IntelliJ IDEA.
- * User: reiz
- * Date: 4/21/12
- * Time: 12:37 PM
- */
-public class FireBaseTest {
 
+public class FireBaseTest {
+	
     @Test
     public void doWrite(){
         Map<String, String> data = new HashMap<String, String>();
-        data.put("name", "rob");
-        data.put("user", "robi");
+        data.put("name", "Mathias");
+        data.put("surName", "Larsen");
         DriverI driver = new FireBaseDriver();
-        driver.setChannel("https://dist-server.firebaseio.com/"+"email");
+        driver.setChannel("https://dist-server.firebaseio.com/Brugere");
+        
         boolean responseCode = driver.write(data);
+        
         assert responseCode;
     }
 
     @Test
     public void doRead() {
         DriverI driver = new FireBaseDriver();
-        Reader reader = driver.read("-IQLhiRv3cUHmZP9KR29");
+        driver.setChannel("https://dist-server.firebaseio.com/");
+        Reader reader = driver.read("Brugere/-KjcaaHJQM94BGwVuLIZ");
         try{
             ObjectMapper mapper = new ObjectMapper();
             User user = mapper.readValue(reader, User.class);
@@ -47,7 +49,8 @@ public class FireBaseTest {
     @Test
     public void doDelete() {
     	DriverI driver = new FireBaseDriver();
-        boolean deleted = driver.delete("-IQLhiRv3cUHmZP9KR29");
+    	driver.setChannel("https://dist-server.firebaseio.com/");
+        boolean deleted = driver.delete("Brugere/-KjcaaHJQM94BGwVuLIZ");
         assert deleted;
     }
 

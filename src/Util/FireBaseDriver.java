@@ -13,17 +13,12 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
-/**
- * Created by IntelliJ IDEA.
- * User: reiz
- * Date: 4/21/12
- * Time: 11:43 AM
- */
+
 @SuppressWarnings("deprecation")
 public class FireBaseDriver implements DriverI {
 
-    private String channel = "YOUR_CHANNEL";
-    private String key = "YOUR_TOKEN_KEY";
+    private String channel = "none";
+    private String key = "tester";
     private final static String QUATA = "\"";
 
     public boolean write(Map<String, String> map){
@@ -50,12 +45,15 @@ public class FireBaseDriver implements DriverI {
             httppost.setHeader("Accept", "application/json");
             httppost.setHeader("Content-type", "application/json");
             HttpResponse response = httpclient.execute(httppost);
-            if (response.getStatusLine().getStatusCode() == 200)
+            if (response.getStatusLine().getStatusCode() == 200){
+            System.out.println(response.getStatusLine());
                 return true;
+            }
             else
                 return false;
         } catch (Exception ex){
             ex.printStackTrace();
+            
             return false;
         }
     }
