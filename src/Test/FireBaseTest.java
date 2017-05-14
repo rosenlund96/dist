@@ -18,24 +18,13 @@ import java.util.Map;
 
 public class FireBaseTest {
 	
-    @Test
-    public void doWrite(){
-        Map<String, String> data = new HashMap<String, String>();
-        data.put("name", "Mathias");
-        data.put("surName", "Larsen");
-        DriverI driver = new FireBaseDriver();
-        driver.setChannel("https://dist-server.firebaseio.com/Brugere");
-        
-        boolean responseCode = driver.write(data);
-        
-        assert responseCode;
-    }
+   
 
     @Test
     public void doRead() {
         DriverI driver = new FireBaseDriver();
-        driver.setChannel("https://dist-server.firebaseio.com/");
-        Reader reader = driver.read("Brugere/-KjcaaHJQM94BGwVuLIZ");
+        driver.setChannel("https://softskill-tools.firebaseio.com/");
+        Reader reader = driver.read("Brugere/jacno");
         try{
             ObjectMapper mapper = new ObjectMapper();
             User user = mapper.readValue(reader, User.class);
@@ -46,12 +35,6 @@ public class FireBaseTest {
         System.out.println("END");
     }
 
-    @Test
-    public void doDelete() {
-    	DriverI driver = new FireBaseDriver();
-    	driver.setChannel("https://dist-server.firebaseio.com/");
-        boolean deleted = driver.delete("Brugere/-KjcaaHJQM94BGwVuLIZ");
-        assert deleted;
-    }
+   
 
 }

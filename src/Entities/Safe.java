@@ -20,11 +20,15 @@ public class Safe {
     private List<AbstractItem> unusedItems = new ArrayList<>();
     private List<AbstractItem> usedItems = new ArrayList<>();
     private static Safe sSafe;
+    public int safeSize;
 
 
     /** N�dvendigt med konsterukt�r uden parametre for at objektet kan instantieres fra JSON */
     public Safe() {
+    	this.safeSize = 0;
     }
+   
+    
 
     /**********************************
      * The logic of this class begins *

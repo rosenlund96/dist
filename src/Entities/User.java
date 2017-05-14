@@ -11,6 +11,7 @@ public class User {
     private String retning;
     private Safe safe;
     private String birth;
+    private int phone;
     private boolean firstRun, administrativ, notifikationer, inverter;
     
     
@@ -28,9 +29,16 @@ public class User {
         this.administrativ = false;
         this.notifikationer = true;
         this.inverter = false;
+        this.phone = 00000000;
 
     }
     
+    public void setPhone(int phone){
+    	this.phone = phone;
+    }
+    public int getphone(){
+    	return phone;
+    }
     /***************************************
      * This method sets the name of a user *
      ***************************************/

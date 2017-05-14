@@ -1,16 +1,24 @@
 package Service;
 
+import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
+import Entities.AbstractItem;
 import Entities.BELBIN;
 import Entities.DISC;
 import Entities.THREESIXTY;
 import Entities.User;
+import Util.DriverI;
+import Util.FireBaseDriver;
 import resources.ItemDefinition;
 
 
@@ -51,6 +59,20 @@ public class BenytSoftskillsModServer {
 	            }
 	        }
 	        System.out.println("Login successfuldt");
+	        DriverI driver = new FireBaseDriver();
+	        driver.setChannel("https://softskill-tools.firebaseio.com/");
+	        Reader reader = driver.read("Brugere/"+currentUser.getName());
+	     
+	        try{
+	            ObjectMapper mapper = new ObjectMapper();
+	            currentUser = mapper.readValue(reader, User.class);
+	            System.out.println("Bruger hentet fra database");
+	            
+	        } catch (Exception ex){
+	            ex.printStackTrace();
+	        }
+	        
+	        System.out.println("Velkommen "+currentUser.getName());
 	        //clearScreen();
 	        while(trustedUser == true){
 	        	loop: for (;;) {
@@ -66,7 +88,16 @@ public class BenytSoftskillsModServer {
 	        	int menupunkt = scanner.nextInt();
 	        	switch(menupunkt){
 	        	case 1: 
-	        		currentUser.getSafeSize();
+	        		System.out.println(currentUser.getSafeSize());
+	        		System.out.println("For at se detaljeret rapport, tryk 1");
+	        		if(scanner.nextInt() == 1){
+	        			List<AbstractItem> tests = currentUser.retrieveSafeObjects();
+	        			System.out.println(currentUser.getSafeSize());
+	        			for(int i = 0; i < tests.size();i++){
+	        				
+	        				System.out.println(i+1+". "+tests.get(i).getProductName());
+	        			}
+	        		}
 	        		break loop;
 	        	case 2: 
 	        		System.out.println("Vælg den profil du ønsker at købe: ");
@@ -106,6 +137,24 @@ public class BenytSoftskillsModServer {
 	        
 
 }
+		 public User doReadUser(String username) {
+		        User user = null;
+			 	DriverI driver = new FireBaseDriver();
+		        driver.setChannel("https://softskill-tools.firebaseio.com/");
+		        Reader reader = driver.read("Brugere/"+username+"/safe/safesize");
+		        try{
+		            ObjectMapper mapper = new ObjectMapper();
+		            user = mapper.readValue(reader, User.class);
+		            System.out.println(user.getName());
+		            
+		        } catch (Exception ex){
+		            ex.printStackTrace();
+		        }
+		        System.out.println("END");
+		        return user;
+		        
+		    }
+		
 		 public static void clearScreen() {  
 	            System.out.print("\033[H\033[2J");  
 	            System.out.flush();  

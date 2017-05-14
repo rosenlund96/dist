@@ -17,6 +17,9 @@ public class DISC extends AbstractItem {
     public static ArrayList<Question> questions;
     public static ArrayList<Question> oldQuestions;
     public static Question[] usedQuestions;
+    public int completion;
+    public boolean first1;
+    public double price;
 
     public Question nextQuestion;
 

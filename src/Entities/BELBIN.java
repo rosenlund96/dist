@@ -16,6 +16,9 @@ public class BELBIN extends AbstractItem {
     public static ArrayList<Question> oldQuestions;
     public static Question[] usedQuestions;
     public Question nextQuestion;
+    public int completion;
+    public boolean first1;
+    public double price;
    
 
     public BELBIN(){
